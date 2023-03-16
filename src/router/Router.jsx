@@ -8,7 +8,7 @@ function Router() {
     <>
     <Routes>
         <Route path="/signIn" element={<SignIn/>} />
-        <Route path="/signUn" element={<SignUp/>} />
+        <Route path="/signUp" element={<SignUp/>} />
     </Routes>
     </>
   )
