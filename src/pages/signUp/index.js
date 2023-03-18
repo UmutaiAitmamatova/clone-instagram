@@ -4,7 +4,6 @@ import instagram from '../../assets/img/instagram.png'
 import { Link } from 'react-router-dom';
 
 function SignUp() {
-    console.log('hello');
     return (
         <div className='sign_up'>
             <div className='block'>
