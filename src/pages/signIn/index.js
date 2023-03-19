@@ -1,17 +1,19 @@
-import React, { useState } from "react";
+import React from "react";
 import "./signIn.scss";
 import instagram from "../../assets/img/instagram.png";
 import { Link } from "react-router-dom";
 import { useAuth } from "../../context/AuthContextProvider";
 
 function SignIn() {
-    // const { userLogin } = useAuth();
+    const { userLogin } = useAuth();
+    // console.log('userLogin', userLogin);
 
-    const [username, setUsername] = useState("");
-    const [password, setPassword] = useState("");
+    const handleSignIn = (data) => {
 
-    const handleSignIn = () => {
-
+            userLogin(data)
+                localStorage.setItem("access", data.access);
+                localStorage.setItem("refresh", data.refresh);
+        
     }
 
     return (
@@ -19,19 +21,17 @@ function SignIn() {
             <div className="block">
                 <div className="top">
                     <img src={instagram} alt="Logo" />
-                    <form>
-                        <input
-                            type="text"
-                            name="username"
-                            value={username}
-                        />
-                        <input
-                            type="password"
-                            name="password"
-                            value={password}
-                        />
+                    <form onSubmit={handleSignIn} className="forms">
+                        <div className='inputs'>
+                            <input type="text" name="username" />
+                            <label for="name">Username</label>
+                        </div>
+                        <div className='inputs'>
+                            <input type="password" name="password" />
+                            <label for="name">Password</label>
+                        </div>
+                        <button type="submit">Войти</button>
                     </form>
-                    <button onClick={handleSignIn()}>Войти</button>
                     <span>Вы забыли пароль?</span>
                 </div>
 

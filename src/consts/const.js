@@ -1,1 +1,1 @@
-export const PUBLIC_API = 'https://cryxxxen.pythonanywhere.com/'
+export const BASE_URL = 'https://cryxxxen.pythonanywhere.com/'

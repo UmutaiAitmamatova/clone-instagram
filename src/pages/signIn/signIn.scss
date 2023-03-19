@@ -19,13 +19,34 @@
                 width: 200px;
                 margin: 0 auto;
             }
-            input{
-                padding: 15px 10px;
-                background-color: #FAFAFA;
-                border: 1px solid #b6b6b6;
-                border-radius: 4px;
-                color: #9C8E8E;
+            .forms{
+                height: 160px;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+
+                .inputs{
+                    display: flex;
+    
+                    input{
+                        width: 100%;
+                        padding: 20px 10px 5px 10px;
+                        background-color: #FAFAFA;
+                        border: 1px solid #b6b6b6;
+                        border-radius: 4px;
+                        color: #9C8E8E;
+                        position: relative;
+                    }
+                    label{
+                        color: #000;
+                        position: absolute;
+                        z-index: 1;
+                        padding-left: 10px;
+                        font-size: 14px;
+                    }
+                }
             }
+
             span{
                 color: #000;
             }
