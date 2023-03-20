@@ -1,17 +1,15 @@
-import React from 'react';
-import { Route, Routes } from 'react-router-dom';
-import SignIn from '../pages/signIn';
-import SignUp from '../pages/signUp';
+import React from "react";
+import { Route, Routes as Switch } from "react-router-dom";
+import SignIn from "../pages/signIn";
+import SignUp from "../pages/signUp";
 
 function Router() {
   return (
-    <>
-    <Routes>
-        <Route path="/signIn" element={<SignIn/>} />
-        <Route path="/signUp" element={<SignUp/>} />
-    </Routes>
-    </>
-  )
+    <Switch>
+      <Route path="/signIn" element={<SignIn />} />
+      <Route path="/signUp" element={<SignUp />} />
+    </Switch>
+  );
 }
 
 export default Router;

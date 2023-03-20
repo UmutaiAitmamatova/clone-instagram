@@ -2,32 +2,55 @@ import React from "react";
 import "./signIn.scss";
 import instagram from "../../assets/img/instagram.png";
 import { Link } from "react-router-dom";
-import { useAuth } from "../../context/AuthContextProvider";
+import { REQUEST } from "../../api";
+// import { useAuth } from "../../context/AuthProvider";
 
 function SignIn() {
-    const { userLogin } = useAuth();
-    // console.log('userLogin', userLogin);
 
-    const handleSignIn = (data) => {
+    const onSubmit = (data) => {
+        if (data) {
+            const request = REQUEST.LOGIN_USER(data);
 
-            userLogin(data)
+            request.then(res => {
+                const data = res.data;
                 localStorage.setItem("access", data.access);
                 localStorage.setItem("refresh", data.refresh);
-        
-    }
+
+            })
+        }
+    };
+
+
+    // const [username, setUsername] = useState('');
+    // const [password, setPassword] = useState('');
+    // // console.log('userLogin', userLogin);
+
+    // const handleSignIn = (data) => {
+
+    //         userLogin(username, password)
+    //             localStorage.setItem("access", data.access);
+    //             localStorage.setItem("refresh", data.refresh);
+
+    // }
 
     return (
         <div className="sign_in">
             <div className="block">
                 <div className="top">
                     <img src={instagram} alt="Logo" />
-                    <form onSubmit={handleSignIn} className="forms">
+                    <form onSubmit={onSubmit} className="forms">
                         <div className='inputs'>
-                            <input type="text" name="username" />
+                            <input
+                                type="text"
+                                name="username"
+                            />
                             <label for="name">Username</label>
                         </div>
                         <div className='inputs'>
-                            <input type="password" name="password" />
+                            <input
+                                type="password"
+                                name="password"
+                            />
                             <label for="name">Password</label>
                         </div>
                         <button type="submit">Войти</button>
