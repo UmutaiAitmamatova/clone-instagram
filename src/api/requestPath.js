@@ -1,4 +1,5 @@
-export const requestPath = {
-  signUp: "users/",
-  signIn: "token/"
-};
+// export const requestPath = {
+//   signUp: "users/",
+//   signIn: "token/"
+// };
+

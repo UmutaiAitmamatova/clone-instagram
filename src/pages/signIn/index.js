@@ -3,13 +3,16 @@ import "./signIn.scss";
 import instagram from "../../assets/img/instagram.png";
 import { Link } from "react-router-dom";
 import { REQUEST } from "../../api";
+import { log_in } from "../../configs/configs";
 // import { useAuth } from "../../context/AuthProvider";
 
 function SignIn() {
 
     const onSubmit = (data) => {
-        if (data) {
-            const request = REQUEST.LOGIN_USER(data);
+        // console.log('data', data);
+        // if (data) {
+            const request = log_in(data);
+            console.log('log', request);
 
             request.then(res => {
                 const data = res.data;
@@ -17,8 +20,10 @@ function SignIn() {
                 localStorage.setItem("refresh", data.refresh);
 
             })
-        }
+        // }
     };
+
+    // console.log(onSubmit());
 
 
     // const [username, setUsername] = useState('');
